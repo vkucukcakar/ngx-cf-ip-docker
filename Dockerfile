@@ -25,6 +25,7 @@ FROM vkucukcakar/cron:1.0.3-alpine
 
 LABEL maintainer "Volkan Kucukcakar"
 
+# Output Nginx Cloudflare configuration file will be saved to /configurations/cf.conf
 VOLUME [ "/configurations" ]
 
 # Install php7-cli
@@ -45,9 +46,6 @@ RUN wget --no-check-certificate https://github.com/vkucukcakar/ngx-cf-ip/archive
 # Copy root crontab to use as template later
 RUN mkdir -p /ngx-cf-ip/crontabs \
     && cp /etc/crontabs/root /ngx-cf-ip/crontabs/
-
-# Create output directory (Output Nginx Cloudflare configuration file will be saved to /configurations/cf.conf)
-RUN mkdir /configurations
 
 # Setup entrypoint
 COPY files/entrypoint.sh /ngx-cf-ip/entrypoint.sh
