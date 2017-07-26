@@ -30,7 +30,7 @@ ngx-cf-ip as Docker image. (ngx-cf-ip: Cloudflare IP updater for Nginx ngx_http_
 
 ## Example
 
-	$ docker run --name my-cf-ip-updater -v /my/location/cf.conf:/output/cf.conf -v /var/run/docker.sock:/var/run/docker.sock -e SERVER_CONTAINER_NAME=server-proxy -d vkucukcakar/ngx-cf-ip-docker
+	$ docker run --name my-cf-ip-updater -v /my/location/cf.conf:/output/cf.conf -v /var/run/docker.sock:/var/run/docker.sock -e SERVER_CONTAINER_NAME=server-proxy -d vkucukcakar/ngx-cf-ip
 
 ## Caveats
 
