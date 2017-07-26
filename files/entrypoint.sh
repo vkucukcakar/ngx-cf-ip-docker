@@ -48,7 +48,7 @@ else
 	echo "SERVER_CONTAINER_NAME not set. Nginx will not be automatically reloaded when Cloudflare IP list updated."
 	_RELOAD=""
 fi
-	echo "Output Nginx Cloudflare configuration file will be saved to /cloudflare/cf.conf"
+	echo "Output Nginx Cloudflare configuration file will be saved to /configurations/cf.conf"
 	# Set schedule to daily if empty
 	[ -z "$SCHEDULE" ] && export SCHEDULE="15 3 * * *"
 	# Restore crontab
@@ -56,9 +56,9 @@ fi
 	# Do not echo all with -e to prevent the need for extra quoting text in parameters
 	echo -e "\n" >>/etc/crontabs/root
 	# Add ngx-cf-ip to crontab
-	echo "$SCHEDULE /usr/local/bin/ngx-cf-ip.php -u --output=\"/cloudflare/cf.conf\" ${_RELOAD}${EXTRA_PARAMETERS} >>/var/log/cron.log 2>>/var/log/cron-error.log" >>/etc/crontabs/root
+	echo "$SCHEDULE /usr/local/bin/ngx-cf-ip.php -u --output=\"/configurations/cf.conf\" ${_RELOAD}${EXTRA_PARAMETERS} >>/var/log/cron.log 2>>/var/log/cron-error.log" >>/etc/crontabs/root
 	# Initially run ngx-cf-ip (Note: Without eval, quotes in variable will make command failed. It is related to the behavior of bash and a little complicated...)
-	eval "/usr/local/bin/ngx-cf-ip.php -u --output=\"/cloudflare/cf.conf\" ${_RELOAD}${EXTRA_PARAMETERS} >>/var/log/cron.log 2>>/var/log/cron-error.log"
+	eval "/usr/local/bin/ngx-cf-ip.php -u --output=\"/configurations/cf.conf\" ${_RELOAD}${EXTRA_PARAMETERS} >>/var/log/cron.log 2>>/var/log/cron-error.log"
 
 # Execute another entrypoint or CMD if there is one
 if [[ "$@" ]]; then
