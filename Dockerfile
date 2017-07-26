@@ -44,6 +44,9 @@ RUN wget --no-check-certificate https://github.com/vkucukcakar/ngx-cf-ip/archive
 RUN mkdir -p /ngx-cf-ip/crontabs \
     && cp /etc/crontabs/root /ngx-cf-ip/crontabs/
 
+# Create output directory (Output Nginx Cloudflare configuration file will be saved to /cloudflare/cf.conf)
+RUN mkdir /cloudflare
+
 # Setup entrypoint
 COPY files/entrypoint.sh /ngx-cf-ip/entrypoint.sh
 RUN chmod +x /ngx-cf-ip/entrypoint.sh

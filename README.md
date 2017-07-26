@@ -5,7 +5,7 @@ ngx-cf-ip as Docker image. (ngx-cf-ip: Cloudflare IP updater for Nginx ngx_http_
 * Downloads Cloudflare IPv4 and IPv6 lists and merge
 * IP address and list validation just in case
 * Creates a new nginx configuration file using set_real_ip_from directives and IP addresses
-* Configuration file ready to be included (/output/cf.conf)
+* Configuration file ready to be included (/cloudflare/cf.conf)
 * Reloads Nginx without restarting container
 
 ## Supported tags
@@ -30,9 +30,9 @@ ngx-cf-ip as Docker image. (ngx-cf-ip: Cloudflare IP updater for Nginx ngx_http_
 
 ## Example
 
-	$ docker run --name my-cf-ip-updater -v /my/location/cf.conf:/output/cf.conf -v /var/run/docker.sock:/var/run/docker.sock -e SERVER_CONTAINER_NAME=server-proxy -d vkucukcakar/ngx-cf-ip
+	$ docker run --name my-cf-ip-updater -v /my/location/cloudflare:/cloudflare -v /var/run/docker.sock:/var/run/docker.sock -e SERVER_CONTAINER_NAME=server-proxy -d vkucukcakar/ngx-cf-ip
 
 ## Caveats
 
 * Docker socket must me mounted to /var/run/docker.sock for default reload command to work.
-* Output file /output/cf.conf should be mounted and included by your (proxy) Nginx server.
+* Output directory /cloudflare should be mounted and the created output file /cloudflare/cf.conf should be included by your (proxy) Nginx server.
