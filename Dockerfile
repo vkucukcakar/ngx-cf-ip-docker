@@ -37,11 +37,11 @@ RUN apk add --update \
 RUN rm -rf /var/cache/apk/*
 
 # Install ngx-cf-ip
-RUN wget --no-check-certificate https://github.com/vkucukcakar/ngx-cf-ip/archive/v1.0.1.tar.gz \
-    && tar -xzvf v1.0.1.tar.gz \
-    && rm v1.0.1.tar.gz \
-    && cp ngx-cf-ip-1.0.1/ngx-cf-ip.php /usr/local/bin/ \
-    && rm -rf ngx-cf-ip-1.0.1
+RUN wget --no-check-certificate https://github.com/vkucukcakar/ngx-cf-ip/archive/v1.0.2.tar.gz \
+    && tar -xzvf v1.0.2.tar.gz \
+    && rm v1.0.2.tar.gz \
+    && cp ngx-cf-ip-1.0.2/ngx-cf-ip.php /usr/local/bin/ \
+    && rm -rf ngx-cf-ip-1.0.2
 
 # Copy root crontab to use as template later
 RUN mkdir -p /ngx-cf-ip/crontabs \
