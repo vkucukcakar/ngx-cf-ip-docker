@@ -21,7 +21,7 @@
 # This copyright notice and license must be retained in all files and derivative works.
 ###
 
-FROM vkucukcakar/cron:1.0.3-alpine
+FROM vkucukcakar/cron:1.0.4-alpine
 
 LABEL maintainer "Volkan Kucukcakar"
 
@@ -30,11 +30,9 @@ VOLUME [ "/configurations" ]
 
 # Install php7-cli
 RUN apk add --update \
-    php7 \
-    php7-openssl
-
-# Clean up the apk cache
-RUN rm -rf /var/cache/apk/*
+		php7 \
+		php7-openssl \
+	&& rm -rf /var/cache/apk/*
 
 # Install ngx-cf-ip
 RUN wget --no-check-certificate https://github.com/vkucukcakar/ngx-cf-ip/archive/v1.0.2.tar.gz \
