@@ -1,3 +1,5 @@
+### This Docker image is deprecated in favor of [vkucukcakar/ip-list-updater](https://hub.docker.com/r/vkucukcakar/ip-list-updater/)
+
 # vkucukcakar/ngx-cf-ip
 
 ngx-cf-ip as Docker image. (ngx-cf-ip: Cloudflare IP updater for Nginx ngx_http_realip_module)
